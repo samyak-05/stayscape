@@ -1,0 +1,29 @@
+<body>
+    <h2 class="mb-4 mt-3 fw-bold">My Bookings</h2>
+
+    <% if (bookings.length===0) { %>
+        <p class="text-center  text-muted">You have no bookings yet.</p>
+        <% } %>
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+            <% for(let booking of bookings) { %>
+                <div class="card" style="width: 18rem;">
+                    <img src="<%= booking.stay.image.url %>" class="card-img-top" alt="stay" style="height: 10rem;">
+                    <div class="card-body">
+                        <br>
+                        <h5 class="card-title">
+                            <%= booking.stay.title %>
+                        </h5>
+                        <p class="card-text">CheckIn : <%= booking.checkIn.toDateString() %>
+                        </p>
+                        <p class="card-text">CheckOut : <%= booking.checkOut.toDateString() %>
+                        </p>
+                        <p class="card-text">Guests : <%= booking.guests %>
+                        </p>
+                        <p class="card-text" style="opacity: 0.7;">Booked On : <%= booking.bookedOn.toDateString() %>
+                        </p>
+                        <a href="/stays/<%= booking.stay._id %>" class="btn btn-primary">See the Stay</a>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+</body>

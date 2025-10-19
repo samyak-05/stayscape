@@ -1,0 +1,62 @@
+<body>
+    <br>
+    <h3>Editing this Stay</h3>
+    <br>
+    <div class="row">
+        <div class="col 8 offset-2">
+            <div class="mb-3">
+                <form method="POST" action="/stays/<%= listing._id %>?_method=PUT" novalidate class="needs-validation"
+                    enctype="multipart/form-data">
+                    <label for="title" class="form-label">Title:</label> <br>
+                    <input id="title" name="listing[title]" value="<%= listing.title %>" type="text"
+                        class="form-control" autocomplete="off" required>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description:</label> <br>
+                        <textarea id="description" name="listing[description]" class="form-control" autocomplete="off"
+                            required><%= listing.description %></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <div class="mb-3">
+                        Original Image Preview:
+                        </div>
+                        <img src="<%= originalImage %>" style="max-height:150px; width: 300px;">
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Upload New Image:</label> <br>
+                        <input id="image" name="image" class="form-control" autocomplete="off"
+                            type="file">
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label for="price" class="form-label">Price:</label> <br>
+                        <input id="price" name="listing[price]" type="number" value="<%= listing.price %>"
+                            class="form-control" autocomplete="off" required>
+
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location:</label> <br>
+                        <input id="location" name="listing[location]" value="<%= listing.location %>"
+                            class="form-control" autocomplete="off" required>
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="country" class="form-label">Country:</label> <br>
+                        <input id="country" name="listing[country]" value="<%= listing.country %>" class="form-control"
+                            autocomplete="off" required>
+
+                    </div>
+                    <br>
+                    <button class="btn btn-dark" style="width: 100%;">Edit This Stay</button>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+    <br>
+</body>

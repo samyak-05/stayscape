@@ -1,0 +1,35 @@
+<body>
+    <% if (q) { %>
+        <h3 class="mt-3">Results for "<%= q %>"</h3>
+    <% } %>
+
+    <% if (searchResults && searchResults.length > 0) { %>
+
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+            <% for(let listing of searchResults) { %>
+                <a href="/stays/<%= listing._id %>" style="text-decoration: none; color: black;">
+                    <div class="card listing-card">
+                        <img src="<%= listing.image.url %>" class="card-img-top" alt="stay" style="height: 20rem;">
+                        <div class="card-img-overlay"></div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <b><%= listing.title %></b><br>
+                                <span class="price" data-base="<%= listing.price %>" data-total="<%= listing.price * 1.18 %>">
+                                    &#8377;<%= listing.price.toLocaleString("en-IN") %>/night
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            <% } %>
+        </div>
+
+    <% } else { %>
+
+        <div class="alert alert-warning mt-3" role="alert">
+            <h4 class="alert-heading">No Stays Found!</h4>
+            <p>We couldn't find any stays matching your search. Please try a different destination.</p>
+        </div>
+
+    <% } %>
+</body>

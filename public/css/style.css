@@ -1,0 +1,202 @@
+/*Body CSS*/
+
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+   display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 6rem;
+}
+
+/*Container CSS*/
+
+.container{
+    flex-grow: 1;
+}
+
+/* Navbar CSS */
+
+.navbar {
+    height: 5.5rem;
+    background-color: white !important;
+}
+
+.navbar-brand {
+    display: flex;        
+    align-items: center; 
+    gap: 0.25rem;           
+}
+
+.fa-compass{
+    color: rgb(53, 53, 255);
+    font-size: 2rem;
+}
+
+.nav-link{
+    color: #222222 !important;
+}
+
+.search-div{
+    background-color: #fff !important;
+}
+
+.search-input{
+    border-radius: 25px !important;
+    padding: 0.5rem 3rem 0.5rem 3rem !important;
+    
+}
+
+.btn-search {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    background-color: blue !important;
+    color: white !important;
+    margin-left: 1rem !important;
+    font-size: 1rem !important;
+    white-space: nowrap;
+    padding: 0 1rem 0 1rem !important;
+    border-radius: 25px !important;
+}
+
+.btn-search:hover {
+    background-color: darkblue !important;
+    color: white !important;
+}
+
+.search-icon {
+    display: inline;
+}
+
+
+/* Footer CSS */
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info-links, .f-info-social, .f-info-brand{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-social i,.f-info-links{
+    font-size: 1.1rem;
+    margin-right: 1rem;
+}
+
+.f-info-links a{
+    margin-right: 2rem;
+}
+
+.f-info{
+    height: 7.5rem;
+    text-align: center;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/*Cards CSS*/
+
+.card,.listing-card{
+    border: none !important;
+    margin-bottom: 2.2rem !important;
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0 !important;
+}
+
+.card-text p{
+    font-weight: 400 !important;
+}
+
+/*Card CSS*/
+
+.card-img-overlay{
+    opacity: 0;;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+
+/*Show Page CSS*/
+.show-img{
+    height: 30vh !important;
+    border-radius: 1rem !important;
+    object-fit: cover !important;
+}
+
+.filter a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.filter a:hover{
+    color: blue;
+}
+
+.show-btn{
+    display: flex;
+    gap: 1.25rem;
+}
+
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/*Review Cards CSS*/
+
+.review-card{
+    border: 0.5px solid #d4d4d4 !important;
+}
+
+/*Filter Bar */
+#filters{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.filter{
+    text-align: center;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    opacity: 0.7;
+}
+
+.filter:hover{
+    opacity: 1;
+    color: blue;
+    cursor: pointer;
+}
+
+.tax-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid #b0b0b0;
+    border-radius: 1.5rem;
+    padding: 0.5rem 1rem;
+    margin-left: 10rem;
+}

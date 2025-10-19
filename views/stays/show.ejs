@@ -1,0 +1,125 @@
+<body>
+  <div class="row">
+    <div class="col-8 offset-2 mt-3">
+      <h3><%= listing.title %></h3>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-7 offset-md-1">
+      <div class="card listing-card">
+        <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="stay">
+        <br>
+        <div class="card-body">
+          <p class="card-text"><i> Your host : <%= listing.owner.username %> </i></p>
+          <p class="card-text"><%= listing.description %></p>
+          <p class="card-text">&#8377;<%= listing.price.toLocaleString("en-IN") %></p>
+          <p class="card-text"><%= listing.location %></p>
+          <p class="card-text"><%= listing.country %></p>
+        </div>
+      </div>
+
+      <% if(currUser && currUser._id.equals(listing.owner._id)){ %>
+        <div class="show-btn mt-3">
+          <a href="/stays/<%= listing._id%>/edit" class="btn btn-dark">Edit</a>
+          <form method="POST" action="/stays/<%= listing._id %>?_method=DELETE" class="d-inline">
+            <button class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      <% } %>
+      
+      <hr>
+
+      <div class="mt-4">
+        <% if(currUser) { %>
+          <h4>Leave a Review</h4>
+          <form method="post" action="/stays/<%= listing._id %>/reviews" novalidate class="needs-validation">
+            <div class="mb-3 mt-3">
+              <label for="rating" class="form-label">Rating</label>
+              <fieldset class="starability-grow">
+                <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
+                <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                <label for="first-rate1" title="Terrible">1 star</label>
+                <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                <label for="first-rate2" title="Not good">2 stars</label>
+                <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                <label for="first-rate3" title="Average">3 stars</label>
+                <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                <label for="first-rate4" title="Very good">4 stars</label>
+                <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                <label for="first-rate5" title="Amazing">5 stars</label>
+              </fieldset>
+            </div>
+            <div class="mb-3">
+              <label for="comment" class="form-label">Comment</label>
+              <textarea class="form-control" id="comment" rows="3" name="review[comment]" required></textarea>
+              <div class="invalid-feedback">Please enter some valid feedback.</div>
+            </div>
+            <button class="btn btn-outline-primary">Submit Review</button>
+          </form>
+        <% } %>
+        <br>
+        <h4>All Reviews</h4>
+        <div class="row">
+          <% for(let review of listing.reviews){ %>
+            <div class="card col-5 ms-3 mb-3 review-card">
+              <div class="card-body">
+                <h5 class="card-title">@<%= review.author.username %></h5>
+                <p class="starability-result" data-rating="<%= review.rating %>"></p>
+                <p class="card-text"><%= review.comment %></p>
+              </div>
+              <% if(currUser && review.author._id.equals(currUser._id)) { %>
+                <form class="mb-3 ms-3" method="POST" action="/stays/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+                  <button class="btn btn-sm btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
+                </form>
+              <% } %>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card shadow-sm border-0 rounded-4 p-4 sticky-top">
+        <h5 class="text-center mb-3">
+          <% if(currUser) { %>
+            Price: <span class="fw-bold text-dark">₹<%= listing.price.toLocaleString("en-IN") %></span> / per night + taxes
+          <% } else { %>
+            <span class="fw-bold text-dark">Login to Book this Stay</span>
+           <% } %> 
+        </h5>
+        <hr>
+        
+        <form method="POST" action="/stays/<%= listing._id %>/book" class="booking-box needs-validation" novalidate data-price="<%= listing.price %>">
+          
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="checkIn" class="form-label fw-semibold">Check-in</label>
+              <input type="date" id="checkIn" name="checkInDate" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="checkOut" class="form-label fw-semibold">Check-out</label>
+              <input type="date" id="checkOut" name="checkOutDate" class="form-control" required>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label for="guests" class="form-label fw-semibold">Number of guests:</label>
+            <select id="guests" name="guests" class="form-select" required>
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <% if(currUser) { %> 
+          <button type="submit" id="bookingBtn" class="btn btn-primary w-100 fw-semibold py-2 rounded-pill">
+            Book Now
+          </button>
+          <% } %>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br>
+</body>

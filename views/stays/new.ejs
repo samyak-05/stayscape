@@ -1,0 +1,76 @@
+<body>
+    <br>
+    <h3>Add New Stay</h3>
+    <br>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <form method="POST" action="/stays" class="needs-validation" novalidate 
+            enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title:</label> <br>
+                    <input id="title" name="listing[title]" placeholder="Enter Title" type="text" class="form-control"
+                        autocomplete="off" required>
+                    <div class="valid-feedback"> Title looks cool! </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description:</label> <br>
+                    <textarea id="description" name="listing[description]" placeholder="Enter Details"
+                        class="form-control" autocomplete="off" required></textarea>
+                    <div class="invalid-feedback"> Enter a short description</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload Image:</label> <br>
+                    <input id="image" name="image" class="form-control"
+                        autocomplete="off" type ="file">
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                    <label for="price" class="form-label">Price:</label> <br>
+                    <input id="price" name="listing[price]" placeholder="Enter Price" class="form-control"
+                        autocomplete="off" required>
+                    <div class="invalid-feedback"> Enter a valid Price!</div>
+                </div>
+
+                 <div class="mb-3 col-md-8">
+                    <label for="country" class="form-label">Country:</label> <br>
+                    <input id="country" name="listing[country]" placeholder="Enter Country" class="form-control"
+                        autocomplete="off" required>
+                    <div class="invalid-feedback"> Enter a valid Country Name!</div>
+                </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location:</label> <br>
+                    <input id="location" name="listing[location]" placeholder="Enter Location" class="form-control"
+                        autocomplete="off" required>
+                    <div class="invalid-feedback"> Enter a valid Location!</div>
+                </div>
+                <br>
+
+                <div class="mb-3">
+                    <label for="category" class="form-label">Select most suitable Category:</label> <br>
+                    <select id="category" name="listing[category]" type=placeholder="Category" class="form-control"
+                        autocomplete="off" required>
+                        <option value="">>--Select a Category--<</option>
+                        <option value="Trending">Trending</option>
+                        <option value="Mountain">Mountains</option>
+                        <option value="Rooms">Rooms</option>
+                        <option value="Beaches">Beaches</option>
+                        <option value="Royal Stays">Royal Stays</option>
+                        <option value="Hostels">Hostels</option>
+                        <option value="Snowy">Snowy</option>
+                        <option value="Camping">Camping</option>
+                    </select>
+                    <div class="invalid-feedback">Select atleast one category.</div>
+                </div>
+                <br>
+
+                <button class="btn btn-dark">Add Stay</button>
+                <br> <br>
+            </form>
+        </div>
+    </div>
+</body>

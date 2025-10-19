@@ -1,0 +1,89 @@
+<body>
+    <br>
+    <div id="filters">
+        <div class="filter">
+            <a href="stays?category=Trending">
+                <div> <i class="fa-solid fa-fire"></i></div>
+                <p>Trending</p>
+            </a>
+        </div>
+        <div class="filter">
+            <a href="stays?category=Rooms">
+                <div><i class="fa-solid fa-bed"></i></div>
+                <p>Rooms</p>
+            </a>
+        </div>
+        <div class="filter">
+            <a href="stays?category=Camping">
+                <div><i class="fa-solid fa-campground"></i></div>
+                <p>Camping</p>
+            </a>
+        </div>
+        
+        <div class="filter">
+            <a href="stays?category=Snowy">
+                <div><i class="fa-regular fa-snowflake"></i></div>
+                <p>Snowy</p>
+            </a>
+        </div>
+
+        <div class="filter">
+            <a href="stays?category=Royal Stays">
+                <div><i class="fa-solid fa-crown"></i></div>
+                <p>Royal Stays</p>
+            </a>
+        </div>
+
+        <div class="filter">
+            <a href="stays?category=Hostels">
+                <div><i class="fa-solid fa-hotel"></i></div>
+                <p>Hostels</p>
+            </a>
+        </div>
+
+        <div class="filter">
+            <a href="stays?category=Mountains">
+                <div><i class="fa-solid fa-mountain-sun"></i></div>
+                <p>Mountains</p>
+            </a>
+        </div>
+
+        <div class="filter">
+            <a href="stays?category=Beaches">
+                <div><i class="fa-solid fa-umbrella-beach"></i></div>
+                <p>Beaches</p>
+            </a>
+        </div>
+
+        <div class="tax-switch">
+            <div class="form-check-reverse form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Display amount after Taxes</label>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+        <% for(let listing of allListings) { %>
+            <a href="/stays/<%= listing._id %>" style="text-decoration: none; color: black;">
+                <div class="card listing-card">
+                    <img src="<%= listing.image.url %>" class="card-img-top" alt="stay" style="height: 20rem;">
+                    <div class="card-img-overlay">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b>
+                                <%= listing.title %>
+                            </b><br>
+                            <span class="price" data-base="<%= listing.price %>"
+                                data-total="<%= listing.price * 1.18 %>">
+                                &#8377;<%= listing.price.toLocaleString("en-IN") %>/night
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <% } %>
+    </div>
+</body>
