@@ -32,7 +32,7 @@ app.use(expressLayouts);
 app.set("layout", "layouts/boilerplate.ejs");
 
 const store = MongoStore.create({
-    mongoUrl: db_Url,
+    mongoUrl: db_URL,
     crypto: {
         secret: process.env.SECRET,
     },
