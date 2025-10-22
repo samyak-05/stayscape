@@ -164,7 +164,7 @@ module.exports.bookStay = async (req, res, next) => {
             <li>Total Cost: ₹${formattedCost.toFixed(2)}</li>
           </ul>
         <p>
-        You should pay the total amount of ₹${formattedCost.toFixed(2)} at the time of check-in.
+        You should pay the total amount of ₹${formattedCost.toFixed(2)} at the time of check-out.
           Thanks for booking with StayScape!
         </p>
         </div>
