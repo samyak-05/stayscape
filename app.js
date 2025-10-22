@@ -83,6 +83,18 @@ async function main(){
     await mongoose.connect(db_URL);   
 }
 
+app.get("/terms", (req, res) => {
+    res.render("stayscape/terms");
+});
+
+app.get("/privacy", (req, res) => {
+    res.render("stayscape/privacy");
+});
+
+app.get("/contact", (req, res) => {
+    res.render("stayscape/contact");
+});
+
 app.use("/stays", stayRoutes);
 app.use("/stays/:id/reviews", reviewRoutes);
 app.use("/",userRoutes);
